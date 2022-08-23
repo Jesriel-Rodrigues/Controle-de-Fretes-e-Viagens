@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import com.fretes.lancamentofretes.models.Clientes;
 import com.fretes.lancamentofretes.repository.ClientesRepository;
 import com.fretes.lancamentofretes.shared.ClienteDTO;
+import com.fretes.lancamentofretes.view.model.ClienteRequest;
+import com.fretes.lancamentofretes.view.model.ClienteResponse;
 
 @Service
 public class ClientesService {
@@ -36,10 +38,10 @@ public class ClientesService {
         return clienteDTO;
     }
 
-    public ClienteDTO cadastraCliente(ClienteDTO clienteDto) {
-        Clientes cliente = modelMapper.map(clienteDto, Clientes.class);
-        clientesRepository.save(cliente);
-        return clienteDto;
+    public ClienteDTO cadastraCliente(ClienteRequest clienteRequest) {
+        Clientes cliente = modelMapper.map(clienteRequest, Clientes.class);
+        cliente = clientesRepository.save(cliente);
+        return modelMapper.map(cliente, ClienteDTO.class);
     }
 
     public void deleteClienteById(Long clienteId) {

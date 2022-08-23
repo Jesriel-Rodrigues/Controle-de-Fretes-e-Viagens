@@ -30,10 +30,10 @@ public class ClientesController {
 
 
     @PostMapping
-    public ClienteResponse cadastraCliente(@RequestBody ClienteRequest cliente) {
-        ClienteDTO clienteDTO = modelMapper.map(cliente, ClienteDTO.class);
-        ClienteResponse clienteResponse = modelMapper.map(cliente, ClienteResponse.class);
-        clientesService.cadastraCliente(clienteDTO);
+    public ClienteResponse cadastraCliente(@RequestBody ClienteRequest clienteRequest) {
+        // ClienteDTO clienteDTO = modelMapper.map(cliente, ClienteDTO.class);
+        ClienteDTO clienteDTO = clientesService.cadastraCliente(clienteRequest);
+        ClienteResponse clienteResponse = modelMapper.map(clienteDTO, ClienteResponse.class);
         return clienteResponse;
     }
 

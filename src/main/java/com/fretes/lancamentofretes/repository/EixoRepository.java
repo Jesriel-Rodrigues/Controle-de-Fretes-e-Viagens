@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.fretes.lancamentofretes.models.Eixo;
 
 @Repository
-public interface EixoRepository  extends JpaRepository <Eixo, Integer>{
+public interface EixoRepository  extends JpaRepository <Eixo, Long>{
     
 }
