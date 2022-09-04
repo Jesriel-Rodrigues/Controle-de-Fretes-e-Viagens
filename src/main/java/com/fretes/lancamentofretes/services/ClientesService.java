@@ -5,22 +5,22 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fretes.lancamentofretes.models.Clientes;
 import com.fretes.lancamentofretes.repository.ClientesRepository;
 import com.fretes.lancamentofretes.shared.ClienteDTO;
 import com.fretes.lancamentofretes.view.model.ClienteRequest;
-import com.fretes.lancamentofretes.view.model.ClienteResponse;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class ClientesService {
 
     ModelMapper modelMapper = new ModelMapper();
     
-    @Autowired
-    ClientesRepository clientesRepository;
+    private final ClientesRepository clientesRepository;
     
     public List<ClienteDTO> getAllClientes() {
         List<Clientes> clientlist = clientesRepository.findAll();

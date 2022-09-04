@@ -7,25 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 import lombok.Data;
 
 @Entity
-@Table(name = "Clientes")
-public @Data class Clientes {
+@Data
+@Table(name = "veiculo")
+public class Veiculo {
     
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long id;
+    private Long veiculoId;
 
-    private String nome;
+    private String placa;
 
-    @OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL)
-    private List<TableCliente> tableClientes;
+    @OneToOne
+    @JoinColumn(name = "eixo_id")
+    private Eixo eixo;
 
-    @OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
     private List<TableFretes> tableFretes;
 }

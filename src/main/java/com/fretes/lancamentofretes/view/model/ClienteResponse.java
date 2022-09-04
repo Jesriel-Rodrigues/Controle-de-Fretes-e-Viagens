@@ -1,8 +1,5 @@
 package com.fretes.lancamentofretes.view.model;
 
-import java.util.List;
-
-import com.fretes.lancamentofretes.models.Eixo;
 
 import lombok.Data;
 

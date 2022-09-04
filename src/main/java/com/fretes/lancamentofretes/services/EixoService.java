@@ -8,24 +8,22 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fretes.lancamentofretes.models.Clientes;
 import com.fretes.lancamentofretes.models.Eixo;
 import com.fretes.lancamentofretes.repository.EixoRepository;
-import com.fretes.lancamentofretes.shared.ClienteDTO;
 import com.fretes.lancamentofretes.shared.EixoDTO;
 import com.fretes.lancamentofretes.view.model.EixoRequest;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class EixoService {
 
 
     ModelMapper modelMapper = new ModelMapper();
 
-    @Autowired
-    EixoRepository eixoRepository;
+    private final EixoRepository eixoRepository;
 
-    @Autowired
-    ClientesService clientesService;
 
 
     public List<EixoDTO> getAllEixos() {
@@ -46,17 +44,9 @@ public class EixoService {
     }
 
     public EixoDTO createEixo(EixoRequest eixoRequest) {
-
-
-        ClienteDTO clienteDto = clientesService.getClientesById(eixoRequest.getClienteId());
-
-        Clientes cliente = modelMapper.map(clienteDto, Clientes.class);
-
         
 
         Eixo eixo = modelMapper.map(eixoRequest, Eixo.class);
-
-        eixo.setCliente(cliente);
 
         eixoRepository.save(eixo);
 
