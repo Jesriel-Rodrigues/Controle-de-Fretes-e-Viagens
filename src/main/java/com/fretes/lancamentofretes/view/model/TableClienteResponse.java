@@ -1,7 +1,5 @@
 package com.fretes.lancamentofretes.view.model;
 
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,9 +9,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EixoResponse {
+public class TableClienteResponse {
 
-    private Long eixoId;
+    private Long tableFretesId;
 
-    private String nome;
+    private VeiculoResponse veiculo;
+
+    private ClienteResponse clientes;
+
+    private Double valorFrete;
 }

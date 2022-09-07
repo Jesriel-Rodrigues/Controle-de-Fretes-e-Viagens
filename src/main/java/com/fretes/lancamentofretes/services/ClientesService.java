@@ -38,6 +38,13 @@ public class ClientesService {
         return clienteDTO;
     }
 
+    public Clientes getClientesEntityById(Long clientId){
+        Optional<Clientes> cliente = clientesRepository.findById(clientId.longValue());
+        // ClienteDTO clienteDTO = modelMapper.map(cliente.get(), ClienteDTO.class);
+
+        return cliente.get();
+    }
+
     public ClienteDTO cadastraCliente(ClienteRequest clienteRequest) {
         Clientes cliente = modelMapper.map(clienteRequest, Clientes.class);
         cliente = clientesRepository.save(cliente);
