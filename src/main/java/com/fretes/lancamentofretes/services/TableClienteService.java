@@ -8,8 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.fretes.lancamentofretes.models.Clientes;
+import com.fretes.lancamentofretes.models.Eixo;
 import com.fretes.lancamentofretes.models.TableCliente;
-import com.fretes.lancamentofretes.models.Veiculo;
 import com.fretes.lancamentofretes.repository.TableClienteRepository;
 import com.fretes.lancamentofretes.view.model.TableClientePostRequest;
 import com.fretes.lancamentofretes.view.model.TableClienteResponse;
@@ -24,7 +24,7 @@ public class TableClienteService {
     
     private final TableClienteRepository tableClienteRepository;
     private final ClientesService clientesService;
-    private final VeiculoService veiculoService;
+    private final EixoService eixoService;
 
     public List<TableClienteResponse> getAllTableClientes() {
 
@@ -62,7 +62,7 @@ public class TableClienteService {
         
         Clientes cliente = clientesService.getClientesEntityById(tableClientePost.getClientesId());
 
-        Veiculo veiculo = veiculoService.getVeiculoById(tableClientePost.getVeiculoId());
+        Eixo eixo = eixoService.getEixoEntityById(tableClientePost.getEixoId());
 
         TableCliente tableCliente = modelMapper.map(tableClientePost, TableCliente.class);
 
@@ -70,6 +70,10 @@ public class TableClienteService {
 
         tableCliente.setEixo(eixo);
 
-        return null;
+        tableClienteRepository.save(tableCliente);
+
+        TableClienteResponse tableClienteResponse = modelMapper.map(tableCliente, TableClienteResponse.class);
+
+        return tableClienteResponse;
     }
 }

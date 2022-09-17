@@ -14,14 +14,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TableClientePostRequest {
     
-    // @NotNull(message = "Não pode cadastrar com id do veiculo vazio")
-    // private Long veiculoId;
 
     @NotNull(message = "Não pode cadastrar com id do cliente vazio")
     private Long clientesId;
 
-    // @NotBlank(message = "Não pode cadastrar valor do frete vazio")
-    // private Double valorFrete;
 
     @NotBlank(message = "Não pode cadastrar valor da diaria vazio")
     private Double diaria;

@@ -11,11 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TableClienteResponse {
 
-    private Long tableFretesId;
+    private Long tblClienteId;
 
-    private VeiculoResponse veiculo;
+    private EixoResponse eixo;
 
     private ClienteResponse clientes;
 
-    private Double valorFrete;
+    private Double diaria;
+
+    private Double valorKm;
 }

@@ -42,6 +42,17 @@ public class EixoService {
         return modelMapper.map(eixo.get(), EixoDTO.class);
     }
 
+    public Eixo getEixoEntityById( Long id) {
+        
+        Optional<Eixo> eixo = eixoRepository.findById(id);
+
+        if (eixo.isEmpty()) {
+            // throw
+        }
+
+        return eixo.get();
+    }
+
     public EixoDTO createEixo(EixoRequest eixoRequest) {
         
 

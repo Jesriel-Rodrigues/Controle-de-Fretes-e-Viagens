@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 public class TableCliente {
     
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     private Long tblClienteId;
 
