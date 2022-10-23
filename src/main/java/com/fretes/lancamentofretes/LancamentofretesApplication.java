@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 // import org.springframework.context.annotation.ComponentScan;
 
+// import com.fretes.lancamentofretes.models.TableClienteCarreta;
 // import com.fretes.lancamentofretes.services.ClientesService;
 // import com.fretes.lancamentofretes.view.controller.ClientesController;
 
 // @ComponentScan(basePackageClasses = ClientesController.class)
 // @ComponentScan(basePackageClasses = ClientesService.class)
+// @ComponentScan(basePackageClasses = TableClienteCarreta.class)
 @EnableWebMvc
 @SpringBootApplication
 public class LancamentofretesApplication {

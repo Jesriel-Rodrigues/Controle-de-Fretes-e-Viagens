@@ -8,9 +8,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.fretes.lancamentofretes.models.Eixo;
+import com.fretes.lancamentofretes.models.exception.BadRequestException;
 import com.fretes.lancamentofretes.repository.EixoRepository;
 import com.fretes.lancamentofretes.shared.EixoDTO;
 import com.fretes.lancamentofretes.view.model.EixoRequest;
+import com.fretes.lancamentofretes.view.model.EixoResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -35,11 +37,15 @@ public class EixoService {
     }
 
     
-    public EixoDTO getEixoById( Long id) {
+    public EixoResponse getEixoById( Long id) {
         
         Optional<Eixo> eixo = eixoRepository.findById(id);
 
-        return modelMapper.map(eixo.get(), EixoDTO.class);
+        if (eixo.isEmpty()) {
+            throw new BadRequestException("Eixo nao encontrado!");
+        }
+
+        return modelMapper.map(eixo.get(), EixoResponse.class);
     }
 
     public Eixo getEixoEntityById( Long id) {
@@ -47,7 +53,7 @@ public class EixoService {
         Optional<Eixo> eixo = eixoRepository.findById(id);
 
         if (eixo.isEmpty()) {
-            // throw
+            throw new BadRequestException("Eixo nao encontrado!");
         }
 
         return eixo.get();

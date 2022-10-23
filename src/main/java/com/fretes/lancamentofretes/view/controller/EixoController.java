@@ -39,10 +39,9 @@ public class EixoController {
     }
 
     @GetMapping("/{eixoId}")
-    public EixoResponse getEixoById(@PathVariable Long id) {
-        EixoDTO eixoDto = eixoService.getEixoById(id);
+    public EixoResponse getEixoById(@PathVariable Long eixoId) {
         
-        return modelMapper.map(eixoDto, EixoResponse.class);
+        return eixoService.getEixoById(eixoId);
     }
 
 
