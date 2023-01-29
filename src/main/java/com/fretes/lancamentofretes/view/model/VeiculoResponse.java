@@ -1,6 +1,7 @@
 package com.fretes.lancamentofretes.view.model;
 
-import com.fretes.lancamentofretes.models.Eixo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fretes.lancamentofretes.models.entities.Eixo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,5 +18,6 @@ public class VeiculoResponse {
 
     private String placa;
     
+    @JsonIgnore
     private Eixo eixo;
 }

@@ -1,4 +1,4 @@
-package com.fretes.lancamentofretes.models;
+package com.fretes.lancamentofretes.models.entities;
 
 import java.util.List;
 
@@ -39,8 +39,6 @@ public class TableCliente {
 
     private Double vlrEntrega;
 
-    private Double bonusDeVeiculo;
-
     private Double vlrFixoMensal;
 
     private Double valorKm;
@@ -51,6 +49,10 @@ public class TableCliente {
     @OneToOne
     @JoinColumn(name = "eixo_id")
     private Eixo eixo;
+
+    @OneToOne
+    @JoinColumn(name = "bonus_veiculo_id")
+    private BonusVeiculo bonusVeiculo;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")

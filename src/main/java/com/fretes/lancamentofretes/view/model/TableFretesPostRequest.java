@@ -1,8 +1,14 @@
 package com.fretes.lancamentofretes.view.model;
 
 
+import java.time.LocalDate;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.fretes.lancamentofretes.models.enums.StatusViagem;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,11 +29,18 @@ public class TableFretesPostRequest {
     @NotNull(message = "Não pode cadastrar com id do cliente vazio!")
     private Long clientesId;
 
-    @NotBlank(message = "Quantidade de dias não pode ser vazio!")
-    private Long diasViagem;
+    @NotBlank(message = "Não pode cadastrar com data de saida vazio!")
+    private LocalDate dataSaida;
 
-    @NotBlank(message = "Quantidade de quilometro rodado não pode ser vazio!")
+    private LocalDate dataRetorno;
+
+    private Double qtdTrip;
+
+    private Double qtdEntrega;
+
+    @NotNull(message = "Status da viagem não pode ser vazio!")
+    @Enumerated(EnumType.ORDINAL)
+    private StatusViagem status;
+
     private Long kmRodado;
-
-    private Double valorFrete;
 }

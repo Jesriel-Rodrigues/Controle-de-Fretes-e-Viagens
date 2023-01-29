@@ -1,8 +1,10 @@
-package com.fretes.lancamentofretes.models;
+package com.fretes.lancamentofretes.models.entities;
 
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,9 +47,8 @@ public class TableFretes {
 
     private Double qtdEntrega;
 
+    @Enumerated(EnumType.STRING)
     private StatusViagem status;
-
-    private Long diasViagem;
 
     private Long kmRodado;
 

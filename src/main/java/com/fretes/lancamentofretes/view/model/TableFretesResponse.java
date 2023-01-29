@@ -1,7 +1,8 @@
 package com.fretes.lancamentofretes.view.model;
 
-import com.fretes.lancamentofretes.models.Clientes;
-import com.fretes.lancamentofretes.models.Veiculo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fretes.lancamentofretes.models.entities.Clientes;
+import com.fretes.lancamentofretes.models.entities.Veiculo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,8 +17,10 @@ public class TableFretesResponse {
 
     private Long tableFretesId;
 
+    @JsonIgnore
     private Veiculo veiculo;
 
+    @JsonIgnore
     private Clientes clientes;
 
     private Long diasViagem;

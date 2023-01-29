@@ -1,6 +1,6 @@
 package com.fretes.lancamentofretes.shared;
 
-import com.fretes.lancamentofretes.models.Clientes;
+import com.fretes.lancamentofretes.models.entities.Clientes;
 
 import lombok.Data;
 

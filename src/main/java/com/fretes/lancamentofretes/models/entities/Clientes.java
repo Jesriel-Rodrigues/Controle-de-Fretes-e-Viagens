@@ -1,4 +1,4 @@
-package com.fretes.lancamentofretes.models;
+package com.fretes.lancamentofretes.models.entities;
 
 import java.util.List;
 
@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,4 +31,10 @@ public @Data class Clientes {
 
     @OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL)
     private List<TableFretes> tableFretes;
+
+    @ManyToMany
+    @JoinTable(name = "veiculo_cliente_bonus", 
+    joinColumns = @JoinColumn(name = "cliente_id"),
+    inverseJoinColumns = @JoinColumn(name = "veiculo_id"))
+    private List<Veiculo> veiculoBonus;
 }

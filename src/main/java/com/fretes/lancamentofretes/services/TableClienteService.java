@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.fretes.lancamentofretes.models.Clientes;
-import com.fretes.lancamentofretes.models.Eixo;
-import com.fretes.lancamentofretes.models.TableCliente;
+import com.fretes.lancamentofretes.models.entities.Clientes;
+import com.fretes.lancamentofretes.models.entities.Eixo;
+import com.fretes.lancamentofretes.models.entities.TableCliente;
 import com.fretes.lancamentofretes.repository.TableClienteRepository;
 import com.fretes.lancamentofretes.view.model.TableClientePostRequest;
 import com.fretes.lancamentofretes.view.model.TableClienteResponse;

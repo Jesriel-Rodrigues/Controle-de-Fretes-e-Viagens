@@ -18,13 +18,29 @@ public class TableClientePostRequest {
     @NotNull(message = "Não pode cadastrar com id do cliente vazio")
     private Long clientesId;
 
-
-    @NotBlank(message = "Não pode cadastrar valor da diaria vazio")
-    private Double diaria;
-
-    @NotBlank(message = "Não pode cadastrar valor do km vazio")
-    private Double valorKm;
-
     @NotNull(message = "Não pode cadastrar com id do eixo vazio")
     private Long eixoId;
+
+    // @NotBlank(message = "Não pode cadastrar valor da diaria vazio")
+    private Double diaria;
+
+    // @NotBlank(message = "Não pode cadastrar valor do km vazio")
+    private Double valorKm;
+
+    private Double largada;
+
+    private Double pernoiteVeiculo;
+
+    private Double pernoiteTrip;
+
+    private Double franquiaKm;
+
+    private Double vlrAjudante;
+
+    private Double vlrEntrega;
+
+    private Double bonusDeVeiculo;
+
+    private Double vlrFixoMensal;
+
 }

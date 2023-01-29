@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.fretes.lancamentofretes.models.Eixo;
-import com.fretes.lancamentofretes.models.Veiculo;
+import com.fretes.lancamentofretes.models.entities.Eixo;
+import com.fretes.lancamentofretes.models.entities.Veiculo;
 import com.fretes.lancamentofretes.repository.EixoRepository;
 import com.fretes.lancamentofretes.repository.VeiculoRepositoty;
 import com.fretes.lancamentofretes.view.model.VeiculoPostRequest;

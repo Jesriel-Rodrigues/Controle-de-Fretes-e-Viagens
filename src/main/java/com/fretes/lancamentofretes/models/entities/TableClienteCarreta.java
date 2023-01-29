@@ -1,4 +1,4 @@
-package com.fretes.lancamentofretes.models;
+package com.fretes.lancamentofretes.models.entities;
 
 
 import javax.persistence.Entity;

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.fretes.lancamentofretes.models.Eixo;
+import com.fretes.lancamentofretes.models.entities.Eixo;
 import com.fretes.lancamentofretes.models.exception.BadRequestException;
 import com.fretes.lancamentofretes.repository.EixoRepository;
 import com.fretes.lancamentofretes.shared.EixoDTO;

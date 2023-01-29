@@ -2,7 +2,7 @@ package com.fretes.lancamentofretes.shared;
 
 import java.util.List;
 
-import com.fretes.lancamentofretes.models.Eixo;
+import com.fretes.lancamentofretes.models.entities.Eixo;
 
 import lombok.Data;
 

@@ -7,10 +7,12 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.fretes.lancamentofretes.models.Clientes;
-import com.fretes.lancamentofretes.models.TableCliente;
-import com.fretes.lancamentofretes.models.TableFretes;
-import com.fretes.lancamentofretes.models.Veiculo;
+import com.fretes.lancamentofretes.Util.CalculaValores;
+import com.fretes.lancamentofretes.models.entities.Clientes;
+import com.fretes.lancamentofretes.models.entities.TableCliente;
+import com.fretes.lancamentofretes.models.entities.TableFretes;
+import com.fretes.lancamentofretes.models.entities.Veiculo;
+import com.fretes.lancamentofretes.models.exception.BadRequestException;
 import com.fretes.lancamentofretes.repository.TableFretesRepository;
 import com.fretes.lancamentofretes.view.model.TableFretesPostRequest;
 import com.fretes.lancamentofretes.view.model.TableFretesResponse;
@@ -75,20 +77,19 @@ public class TableFretesService {
                 .findFirst();
 
         if (tableClienteOptional.isEmpty()) {
-            // adicionar throw
+            throw new BadRequestException("Tabela de valores não econtrada!");
         }
 
         TableCliente tableCliente = tableClienteOptional.get();
-
         
-        Double vlrDiaria = tableCliente.getDiaria() * tableFretesPostRequest.getDiasViagem();
+        // Double vlrDiaria = tableCliente.getDiaria() * tableFretesPostRequest.getDiasViagem();
 
         Double vlrKmRodado = tableCliente.getValorKm() * tableFretesPostRequest.getKmRodado();
 
-        tableFretesPostRequest.setValorFrete(vlrDiaria + vlrKmRodado);
-
+        
         TableFretes tableFretes = modelMapper.map(tableFretesPostRequest, TableFretes.class);
-
+        
+        tableFretes.setValorFrete(CalculaValores.calculaValorFrete(tableCliente, tableFretesPostRequest, veiculo));
         tableFretes.setClientes(cliente);
         tableFretes.setVeiculo(veiculo);
 
@@ -102,4 +103,6 @@ public class TableFretesService {
 
         return modelMapper.map(tableFretes, TableFretesResponse.class);
     }
+
+    
 }
