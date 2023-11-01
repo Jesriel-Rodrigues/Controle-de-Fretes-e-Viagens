@@ -1,4 +1,4 @@
-package com.fretes.lancamentofretes;
+package com.fretes.lancamentofretes.config.swagger;
 
 import org.springframework.context.annotation.Configuration;
 

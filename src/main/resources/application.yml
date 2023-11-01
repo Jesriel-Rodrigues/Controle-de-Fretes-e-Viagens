@@ -1,0 +1,19 @@
+# Porta do Servidor
+server:
+  port: 8080
+
+# Caminho banco de dados
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5430/lancamentos
+    username: postgres
+    password: "123456"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  database:
+    driverClassName: org.postgresql.Driver
